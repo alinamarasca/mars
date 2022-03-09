@@ -7,13 +7,11 @@ function ChooseDate() {
   const { date, setDate } = useContext(AppContext);
 
   const onChange = date => {
-    setDate(date.toLocaleDateString("en-GB"));
-    console.log(date);
+    setDate(date);
   };
 
   return (
     <div>
-      {" "}
       <Calendar onChange={onChange} value={date} />{" "}
     </div>
   );
