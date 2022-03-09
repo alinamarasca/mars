@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import Gallery from "./components/Gallery";
+import ChooseDate from "./components/ChooseDate";
+import AppContext from "./context/AppContext";
 
 function App() {
+  const [date, setDate] = useState(new Date());
+  const [photoData, setPhotoData] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={{ date, setDate, photoData, setPhotoData }}>
+      <div className="App">
+        <ChooseDate />
+        <Gallery />
+      </div>
+    </AppContext.Provider>
   );
 }
 
