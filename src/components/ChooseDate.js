@@ -1,4 +1,4 @@
-import "react-calendar/dist/Calendar.css";
+// import "react-calendar/dist/Calendar.css";
 import React, { useContext } from "react";
 import Calendar from "react-calendar";
 import AppContext from "../context/AppContext";
@@ -11,7 +11,7 @@ function ChooseDate() {
   };
 
   return (
-    <div>
+    <div id="calendar" className="calendar">
       <Calendar onChange={onChange} value={date} />{" "}
     </div>
   );
