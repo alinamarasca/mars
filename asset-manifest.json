@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mars/static/css/main.c65341c1.css",
+    "main.js": "/mars/static/js/main.091361c0.js",
+    "static/js/787.82474cef.chunk.js": "/mars/static/js/787.82474cef.chunk.js",
+    "index.html": "/mars/index.html",
+    "main.c65341c1.css.map": "/mars/static/css/main.c65341c1.css.map",
+    "main.091361c0.js.map": "/mars/static/js/main.091361c0.js.map",
+    "787.82474cef.chunk.js.map": "/mars/static/js/787.82474cef.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c65341c1.css",
+    "static/js/main.091361c0.js"
+  ]
+}
