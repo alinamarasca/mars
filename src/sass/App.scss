@@ -4,17 +4,16 @@
 body {
   background-image: $bg-color;
   color: $font-color;
+  min-width: 200px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .calendar {
   //whole calendar
   .react-calendar {
     width: 350px;
     max-width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    // font-size: 1rem;
     line-height: 1.125em;
     width: 400px;
-    // border: 1px solid red;
     margin: auto;
     min-width: 200px;
   }
@@ -27,12 +26,12 @@ body {
       justify-content: center;
       align-items: center;
     }
+    .react-calendar__navigation__label {
+      width: fit-content;
+      padding: 0 0.8em;
+    }
   }
 
-  .react-calendar__navigation__label {
-    width: fit-content;
-    padding: 0 0.8em;
-  }
   // days
   .react-calendar__month-view__weekdays {
     display: grid !important;
@@ -102,6 +101,14 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  text-align: center;
+
+  #no-photos {
+    font-size: 1.5rem;
+    align-self: center;
+    justify-self: center;
+    margin-top: 3em;
+  }
 
   .photo-card {
     width: 300px;

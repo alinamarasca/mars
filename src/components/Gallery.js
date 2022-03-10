@@ -25,14 +25,10 @@ function Gallery() {
         console.log(err);
       });
   }
-  //
+
   useEffect(() => {
-    console.log(date.toISOString().split("T")[0]);
-    // fetchPhotos(date.toISOString().split("T")[0]);
-    fetchPhotos("2022-03-03");
-    // fetchPhotos(usersDate);
-    console.log("effect", usersDate);
-  }, []);
+    fetchPhotos(date.toISOString().split("T")[0]);
+  }, [date]);
 
   if (!photoData) return <div />;
 
@@ -43,10 +39,13 @@ function Gallery() {
         e.target.className === "photo" && openModal(e.target.src);
       }}
     >
-      {console.log("fetch-o", photoData)}
-      {photoData.map(photo => {
-        return photoCard(photo);
-      })}
+      {photoData.length === 0 ? (
+        <h3 id="no-photos">Sorry, no photos, yet!</h3>
+      ) : (
+        photoData.map(photo => {
+          return photoCard(photo);
+        })
+      )}
     </div>
   );
 }
