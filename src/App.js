@@ -7,7 +7,6 @@ import Modal from "./components/Modal";
 
 function App() {
   const [date, setDate] = useState(new Date());
-  const [usersDate, setUsersDate] = useState(date.toISOString().split("T")[0]);
   const [photoData, setPhotoData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [img, setImg] = useState();
@@ -22,9 +21,7 @@ function App() {
         isOpen,
         setIsOpen,
         img,
-        setImg,
-        usersDate,
-        setUsersDate
+        setImg
       }}
     >
       <div className="App">

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import { BsX } from "react-icons/bs";
 import AppContext from "../context/AppContext";
 
 function Modal() {

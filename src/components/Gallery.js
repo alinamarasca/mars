@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import axios from "axios";
 import photoCard from "./photoCard";
 import AppContext from "../context/AppContext";
+import convertDate from "./convertDate";
 
 function Gallery() {
-  const [photoData, setPhotoData] = useState([]);
+  const { photoData, setPhotoData } = useContext(AppContext);
   const { date } = useContext(AppContext);
-  const { isOpen, setIsOpen } = useContext(AppContext);
-  const { img, setImg } = useContext(AppContext);
-  const { usersDate, setUsersDate } = useContext(AppContext);
+  const { setIsOpen } = useContext(AppContext);
+  const { setImg } = useContext(AppContext);
+
   // modal
   const openModal = src => {
     setIsOpen(true);
@@ -27,10 +28,8 @@ function Gallery() {
   }
 
   useEffect(() => {
-    fetchPhotos(date.toISOString().split("T")[0]);
+    fetchPhotos(convertDate(date));
   }, [date]);
-
-  if (!photoData) return <div />;
 
   return (
     <div
