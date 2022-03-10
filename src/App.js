@@ -4,12 +4,24 @@ import Gallery from "./components/Gallery";
 import ChooseDate from "./components/ChooseDate";
 import AppContext from "./context/AppContext";
 import Modal from "./components/Modal";
+import axios from "axios";
 
 function App() {
   const [date, setDate] = useState(new Date());
   const [photoData, setPhotoData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [img, setImg] = useState();
+
+  async function fetchPhotos(usersDate) {
+    axios
+      .get(
+        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${usersDate}&page=1&api_key=9AcqhEqCIwq8of63KQPm53MbRUhOTnA3uquqcSxl`
+      )
+      .then(res => setPhotoData(res.data.photos))
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   return (
     <AppContext.Provider
@@ -21,7 +33,8 @@ function App() {
         isOpen,
         setIsOpen,
         img,
-        setImg
+        setImg,
+        fetchPhotos
       }}
     >
       <div className="App">

@@ -9,23 +9,13 @@ function Gallery() {
   const { date } = useContext(AppContext);
   const { setIsOpen } = useContext(AppContext);
   const { setImg } = useContext(AppContext);
+  const { fetchPhotos } = useContext(AppContext);
 
   // modal
   const openModal = src => {
     setIsOpen(true);
     setImg(src);
   };
-  // fetch photos
-  async function fetchPhotos(usersDate) {
-    axios
-      .get(
-        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${usersDate}&page=1&api_key=9AcqhEqCIwq8of63KQPm53MbRUhOTnA3uquqcSxl`
-      )
-      .then(res => setPhotoData(res.data.photos))
-      .catch(err => {
-        console.log(err);
-      });
-  }
 
   useEffect(() => {
     fetchPhotos(convertDate(date));
