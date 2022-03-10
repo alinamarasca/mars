@@ -1,11 +1,10 @@
 import React, { useEffect, useContext } from "react";
-import axios from "axios";
 import photoCard from "./photoCard";
 import AppContext from "../context/AppContext";
 import convertDate from "./convertDate";
 
 function Gallery() {
-  const { photoData, setPhotoData } = useContext(AppContext);
+  const { photoData } = useContext(AppContext);
   const { date } = useContext(AppContext);
   const { setIsOpen } = useContext(AppContext);
   const { setImg } = useContext(AppContext);
@@ -16,7 +15,7 @@ function Gallery() {
     setIsOpen(true);
     setImg(src);
   };
-
+  //
   useEffect(() => {
     fetchPhotos(convertDate(date));
   }, [date]);
