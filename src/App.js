@@ -5,6 +5,7 @@ import ChooseDate from "./components/ChooseDate";
 import AppContext from "./context/AppContext";
 import Modal from "./components/Modal";
 import axios from "axios";
+import NASA_API_KEY from "./apikey.js";
 
 function App() {
   const [date, setDate] = useState(new Date());
@@ -15,7 +16,7 @@ function App() {
   async function fetchPhotos(usersDate) {
     axios
       .get(
-        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${usersDate}&page=1&api_key=9AcqhEqCIwq8of63KQPm53MbRUhOTnA3uquqcSxl`
+        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${usersDate}&page=1&api_key=${NASA_API_KEY}`
       )
       .then(res => setPhotoData(res.data.photos))
       .catch(err => {

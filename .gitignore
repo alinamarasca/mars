@@ -1,5 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
+apikey.js
 # dependencies
 /node_modules
 /.pnp
@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
