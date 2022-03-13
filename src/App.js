@@ -39,9 +39,11 @@ function App() {
       }}
     >
       <div className="App">
-        <ChooseDate />
-        <Gallery />
-        <Modal />
+        <div className="container">
+          <ChooseDate />
+          <Gallery />
+          <Modal />
+        </div>
       </div>
     </AppContext.Provider>
   );

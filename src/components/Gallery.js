@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import photoCard from "./photoCard";
 import AppContext from "../context/AppContext";
 import convertDate from "./convertDate";
+import Masonry from "react-masonry-css";
 
 function Gallery() {
   const { photoData } = useContext(AppContext);
@@ -20,6 +21,13 @@ function Gallery() {
     fetchPhotos(convertDate(date));
   }, [date]);
 
+  const breakpoints = {
+    default: 4,
+    1400: 3,
+    1050: 2,
+    700: 1
+  };
+
   return (
     <div
       className="gallery"
@@ -30,9 +38,15 @@ function Gallery() {
       {photoData.length === 0 ? (
         <h3 id="no-photos">Sorry, no photos, yet!</h3>
       ) : (
-        photoData.map(photo => {
-          return photoCard(photo);
-        })
+        <Masonry
+          breakpointCols={breakpoints}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {photoData.map(photo => {
+            return photoCard(photo);
+          })}
+        </Masonry>
       )}
     </div>
   );
